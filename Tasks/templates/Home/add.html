@@ -1,0 +1,45 @@
+{% extends 'Home/base.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="container text-white">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-10 col-sm-12 text-center">
+            <h1 class="display-2 text-black">To Do </h1>
+            <!-- if user is authenticated show this "hey there user.username"  -->
+            <p class="mt-3 lead">Add Task</p>
+            <div class="py-5">
+                <div class="row">
+                    <div class="col-12">
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <input type="submit" class="btn btn-dark btn-block">
+                        </form>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+</div>
+{% endblock content %}
+
+
+{% comment %} <div class="d-flex justify-content-center mt-5">
+              <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
+                <div class="col-12">
+                <div class="form-outline">
+                    <input type="text" id="form1" class="form-control" placeholder="Add Task"/>
+                </div>
+                </div>
+
+                <div class="col-12">
+                <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+
+                <div class="col-12">
+                <button type="submit" class="btn btn-warning">Get tasks</button>
+                </div>
+                </form>
+            </div>
+             {% endcomment %}

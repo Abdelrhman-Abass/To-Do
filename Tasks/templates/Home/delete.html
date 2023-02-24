@@ -1,0 +1,49 @@
+{% extends 'Home/base.html' %}
+
+{% block content %}
+
+  <div class="container">
+    <div class="container text-white">
+      <div class="row justify-content-center mt-5">
+          <div class="col-md-10 col-sm-12 text-center">
+              <h1 class="display-2 text-black">To Do </h1>
+              <!-- if user is authenticated show this "hey there user.username"  -->
+              <div class="py-5">
+                  <div class="row">
+                      <div class="col-12">
+                          <form method="post">
+                              {% csrf_token %}
+                              <h4>Are You Sure?</h4>
+                                <p>You are about to delete this post , this cannot be undone. </p>
+                                <table class="table mb-4 table-striped table-dark"">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Tasks</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">deadline</th>
+                                        <th scope="col">discription</th>
+                    
+                                    </tr>
+                                    </thead>
+                                    
+                                            <tbody>
+                                                <tr>
+                                                    <td> {{ object.task_name }}</td>
+                                                    <td>{{ object.status }}</td>
+                                                    <td>{{ object.deadline }}</td>
+                                                    {% comment %} <td>{{ task.discription }}</td> {% endcomment %}
+                                                    <td>{{ task.pk }}</td>
+                                                    
+                                                </tr>
+                                            </tbody>
+                                    
+                                </table>
+                              <input type="submit" class="btn btn-dark btn-block" value="Delete" >
+                          </form>
+                      </div>
+                  </div>
+              </div>
+      </div>
+  </div>
+  </div>  
+{% endblock %}
